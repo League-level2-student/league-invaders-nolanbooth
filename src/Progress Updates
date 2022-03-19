@@ -9,3 +9,23 @@ Day One - Friday, March 11
 -Made setup method (void)
 -Did all the normal stuff with frame in the setup window - default close operation, set visible, size
 -Made league invader object and initialized it, then used it to call the setup method. This ends the runner set up.
+
+Day Two - Friday, March 18
+-Started on the Game Background portion of the code
+-Created the Game Panel class
+-Imported JPanel and Graphics
+-Overrode some stuff
+-Added the paintComponent method
+-Made a rectangle
+-Made gamepanel member variable in LeagueInvaders class
+-Initialized gamepanel in Constructor
+-Added gamepanel to frame
+-Program worked when tested! This ends the Game Background section.
+-Added some more final int variables in the GamePanel class
+-Added currentState variable and initalized it to MENU
+-Added drawMenuState, drawGameState, and drawEndState void methods. Put Graphics g in their parenthesis
+-Added some if statements to the paintComponent method
+-Colored all the possible game states (Menu blue - Game black - End red)
+-Program works! This ends the Change the state section.
+-Made titleFont variable
+-Made Gamepanel constructor and initialized the titleFont thing
