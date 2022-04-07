@@ -5,7 +5,7 @@ Day One - Friday, March 11
 -Implemented the main method
 -Imported JFrame and made un-initialized frame variable
 -Learned about public, static, and final. Created Height and Width variables which will never change!
--Initzialized the frame variable in the constructor "LeagueInvaders"
+-Initialized the frame variable in the constructor "LeagueInvaders"
 -Made setup method (void)
 -Did all the normal stuff with frame in the setup window - default close operation, set visible, size
 -Made league invader object and initialized it, then used it to call the setup method. This ends the runner set up.
@@ -22,7 +22,7 @@ Day Two - Friday, March 18
 -Added gamepanel to frame
 -Program worked when tested! This ends the Game Background section.
 -Added some more final int variables in the GamePanel class
--Added currentState variable and initalized it to MENU
+-Added currentState variable and initialized it to MENU
 -Added drawMenuState, drawGameState, and drawEndState void methods. Put Graphics g in their parenthesis
 -Added some if statements to the paintComponent method
 -Colored all the possible game states (Menu blue - Game black - End red)
