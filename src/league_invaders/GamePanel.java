@@ -19,7 +19,7 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 	Font titleFont;
 	Font regFont;
 	Timer frameDraw;
-	Rocketship rocket = new Rocketship (250,700,50,50,10);
+	Rocketship rocket = new Rocketship (250,700,50,50,3);
 	
 	public GamePanel() {
 		titleFont = new Font("Arial", Font.ITALIC, 48);
@@ -67,7 +67,7 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 	}
 
 	void updateGameState() {
-
+		rocket.update();
 	}
 
 	void updateEndState() {
@@ -80,6 +80,7 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 			drawMenuState(g);
 		} else if (currentState == GAME) {
 			drawGameState(g);
+			
 		} else if (currentState == END) {
 			drawEndState(g);
 		}
@@ -110,31 +111,46 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 		}
 		if (e.getKeyCode() == KeyEvent.VK_UP) {
 			System.out.println("UP");
-		rocket.up();
+		rocket.up(true);
 		}
 		if (e.getKeyCode() == KeyEvent.VK_DOWN) {
 			System.out.println("DOWN");
-		rocket.down();
+		rocket.down(true);
 		}
 		if (e.getKeyCode() == KeyEvent.VK_RIGHT) {
 			System.out.println("RIGHT");
-		rocket.right();
+		rocket.right(true);
 		}
 		if (e.getKeyCode() == KeyEvent.VK_LEFT) {
 			System.out.println("LEFT");
-		rocket.left();
+		rocket.left(true);
 		}
 
 	}
 
 	@Override
-	public void keyReleased(KeyEvent arg0) {
+	public void keyReleased(KeyEvent e) {
 		// TODO Auto-generated method stub
-
+		if (e.getKeyCode() == KeyEvent.VK_RIGHT) {
+			System.out.println("RIGHT");
+		rocket.right(false);
+		}if (e.getKeyCode() == KeyEvent.VK_LEFT) {
+			System.out.println("LEFT");
+		rocket.left(false);
+		}if (e.getKeyCode() == KeyEvent.VK_UP) {
+			System.out.println("UP");
+		rocket.up(false);
+		}if (e.getKeyCode() == KeyEvent.VK_DOWN) {
+			System.out.println("DOWN");
+		rocket.down(false);
+		}
+	}void setRocketPos(){
+		rocket.x = 250;
+		rocket.y = 700;
 	}
 
 	@Override
-	public void keyTyped(KeyEvent arg0) {
+	public void keyTyped(KeyEvent e) {
 		// TODO Auto-generated method stub
 
 	}
