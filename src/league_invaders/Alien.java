@@ -9,7 +9,7 @@ public class Alien extends GameObject{
 		super(x, y, width, height, 1);
 		
 	}void update(){
-		
+		y+=speed;
 	}void draw(Graphics g){
 		 g.setColor(Color.YELLOW);
 	        g.fillRect(x, y, width, height);
