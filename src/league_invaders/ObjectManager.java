@@ -41,6 +41,10 @@ public class ObjectManager implements ActionListener {
 				pro.isActive = false;
 			}
 		}
+		if (rocket.isActive == false) {
+			checkCollision();
+			purgeObjects();
+		}
 	}
 
 	void draw(Graphics g) {
@@ -70,6 +74,21 @@ public class ObjectManager implements ActionListener {
 	public void actionPerformed(ActionEvent e) {
 		addAlien();
 
+	}
+
+	public void checkCollision() {
+		for (Alien a : aliens) {
+			if (rocket.collisionBox.intersects(a.collisionBox)) {
+				a.isActive = false;
+				rocket.isActive = false;
+				// SINGLE SET COUPLE COMPARE
+			}
+			for(Projectile pro : projectiles) {
+				if(pro.collisionBox.intersects(a.collisionBox)) {
+					a.isActive = false;
+				}
+			}
+		}
 	}
 
 }
