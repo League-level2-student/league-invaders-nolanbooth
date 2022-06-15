@@ -27,7 +27,7 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 	Timer alienSpawn;
 	Rocketship rocket = new Rocketship(250, 700, 50, 50, 3);
 	ObjectManager objMan = new ObjectManager(rocket);
-
+	
 	public GamePanel() {
 		if (needImage) {
 			loadImage("space.png");
@@ -55,6 +55,7 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 		g.drawString("SPACE for Directions", LeagueInvaders.WIDTH / 3, 500);
 
 	}
+	
 
 	void drawGameState(Graphics g) {
 		if (gotImage) {
@@ -72,7 +73,7 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 		g.drawString("Game Over", LeagueInvaders.WIDTH / 3 - 65, 150);
 		g.setFont(regFont);
 		g.drawString("Press ENTER to play again", LeagueInvaders.WIDTH / 3 - 65, 400);
-		g.drawString("SCORE = ", LeagueInvaders.WIDTH / 3, 300);
+		g.drawString("SCORE = "+objMan.score, LeagueInvaders.WIDTH / 3, 300);
 	}
 
 	void updateMenuState() {
@@ -81,9 +82,9 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 
 	void updateGameState() {
 		objMan.update();
-	if(rocket.isActive == false) {
-		currentState = END;
-	}
+		if (rocket.isActive == false) {
+			currentState = END;
+		}
 	}
 
 	void updateEndState() {
@@ -107,7 +108,6 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 		if (currentState == MENU) {
 			updateMenuState();
 		} else if (currentState == GAME) {
-
 			updateGameState();
 		} else if (currentState == END) {
 			updateEndState();
@@ -123,8 +123,12 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 			if (currentState == END) {
 				alienSpawn.stop();
 				currentState = MENU;
+				this.rocket.isActive = true;
+				this.rocket.x = 250;
+				this.rocket.y = 700;
 			} else if (currentState == GAME) {
 				startGame();
+				
 			} else {
 				currentState++;
 			}
